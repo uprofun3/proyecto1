@@ -8,18 +8,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//Tabla que guarda los sitios pendientes por visitar de los usuarios 
 @Entity
 @Table(name="PendingSite")
 public class PendingSite implements Serializable{
 	
+	//id del sitio pendiente, autogenerado
 	@Id
 	@GeneratedValue
 	@Column(name="id", unique=true)
 	private long id;
 	
+	//id del sitio al cual marcaron de independiente
 	@Column(name="site", nullable= false)
 	private long site;
 	
+	//id del usuario que marco como independiente el sitio
 	@Column(name="userId", nullable= false)
 	private long userId;
 	
@@ -27,6 +31,7 @@ public class PendingSite implements Serializable{
 		
 	}
 
+	//Getters Setters
 	public long getId() {
 		return id;
 	}

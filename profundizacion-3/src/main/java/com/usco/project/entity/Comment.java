@@ -8,30 +8,39 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//Esta tabla guardara todos los comentarios que haya hecho un usuario a un sitio
 @Entity
 @Table(name="Comment")
 public class Comment implements Serializable{
 
+	//Autogenerado, guarda el id del comentario 
 	@Id
 	@GeneratedValue
 	@Column(name="id", unique=true)
 	private long id;
 	
+	//Columna donde se almacena el id del usuario que hizo el comentario 
 	@Column(name="userId", nullable=false)
 	private long userId;
 	
+	//Columna donde se almacena el id del sitio al cual se hizo el comentario
 	@Column(name="site", nullable=false)
 	private long site;
 	
+	
+	//Columna donde se almacena el contenido del comentario
 	@Column(name="content", nullable=false)
 	private String content;
 	
+	//Columna que almacena el numero de reportes que tiene un comentario
 	@Column(name="reports")
 	private int reports;
 	
+	//Almacena el numero de likes que tiene el comentario
 	@Column(name="likes")
 	private int likes;
 	
+	//Almacena el numero de dislikes de un comentario
 	@Column(name="dislikes")
 	private int dislikes;
 	

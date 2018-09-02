@@ -2,6 +2,8 @@ package com.usco.project.model;
 
 import com.usco.project.entity.Calification;
 
+//Clase la cual sirve de modelo de las entidades creadas, se crean para no trabajar directamente con las entidades
+//pues no es recomendable
 public class MCalification {
 
 	private long id;
@@ -13,6 +15,7 @@ public class MCalification {
 		
 	}
 	
+	//Se pasan todos los paramentros de la entidad a las del modelo
 	public MCalification(Calification calification) {
 		this.id = calification.getId();
 		this.site = calification.getSite();
@@ -20,6 +23,8 @@ public class MCalification {
 		this.calification = calification.getCalification();
 	}
 
+	
+	//constructor
 	public MCalification(long id, long site, long userId, float calification) {
 		super();
 		this.id = id;
@@ -28,6 +33,7 @@ public class MCalification {
 		this.calification = calification;
 	}
 
+	//getters setters
 	public long getId() {
 		return id;
 	}

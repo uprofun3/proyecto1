@@ -8,42 +8,56 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//Tabla que guardara todos los sitios
 @Entity
 @Table(name="Site")
 public class Site implements Serializable{
 
+	//Id del sitio, Autogenerado
 	@Id
 	@GeneratedValue
 	@Column(name="id", unique=true)
 	private long id;
 	
+	//nombre del sitio
 	@Column(name="name", nullable=false)
 	private String name;
 	
+	//Direccion del sitio
 	@Column(name="address", nullable=false)
 	private String address;
 	
+	//Ciudad donde se encuentra el sitio
 	@Column(name="city")
 	private String city;
 	
+	//Latitud y longitud para encontrar el sitio el google maps
 	@Column(name="latitude")
 	private String latitude;
 	
 	@Column(name="longitude")
 	private String longitude;
 	
+	//Numero de telefono del Sitio
 	@Column(name="phoneNumber", nullable=false)
 	private String phoneNumber;
 	
+	//Eslogan
 	@Column(name="eslogan")
 	private String eslogan;
 	
+	
+	//informacion extra del sitio
 	@Column(name="information",length=1000)
 	private String information;
 	
+	
+	//Categoria del Sitio
 	@Column(name="category", nullable=false)
 	private int category;
 	
+	
+	//Calificacion del sitio
 	@Column(name="calification")
 	private float calification;
 	
@@ -51,6 +65,7 @@ public class Site implements Serializable{
 		
 	}
 
+	//Getters y Setters
 	public long getId() {
 		return id;
 	}

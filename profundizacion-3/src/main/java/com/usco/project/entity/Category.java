@@ -8,21 +8,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//Esta tabla guardara todas las categorias que hay para cada sitio
 @Entity
 @Table(name="Category")
 public class Category implements Serializable{
 
+	//Almacena el id de la categoria, este campo sera autogenerado
 	@Id
 	@GeneratedValue
 	@Column(name="id", unique=true)
 	private long id;
 	
+	//Columna donde se almacenara el nombre de la categoria
 	@Column(name="name", unique=true)
 	private String name;
 	
+	//Se almacena la informacion de la categoria
 	@Column(name="info", length=300)
 	private String info;
 	
+	
+	//Se almacena la url de la imagen del icono de la categoria
 	@Column(name="icon")
 	private String icon;
 	

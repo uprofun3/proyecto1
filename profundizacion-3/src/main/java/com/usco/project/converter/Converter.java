@@ -25,10 +25,12 @@ import com.usco.project.model.MTimeTable;
 import com.usco.project.model.MUser;
 
 
-
+//clase para convertir todas las entidades a modelo de la misma
 @Component("convertidor")
 public class Converter {
 
+	//metodo que convierte una lista de entidades de Calificacion a una lista de Modelos de dicha entidad
+	// los demas metodos en esta clase hacen la misma funcion para cada entidad
 	public List<MCalification> convertCalificationToModel(List<Calification> califications){
 		List<MCalification> mcalifications = new ArrayList<>();
 		
