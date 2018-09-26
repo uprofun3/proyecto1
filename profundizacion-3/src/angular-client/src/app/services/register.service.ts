@@ -7,11 +7,11 @@ import { Site } from '../models/site'
   providedIn: 'root'
 })
 export class RegisterService {
-  domain: String = 'http://localhost:8090'
+  domain: String = 'http://localhost:8090';
   constructor(private http: HttpClient) {}
-
-  agregarSitio(nuevoSitio: Site){
+  // comentario
+  agregarSitio(nuevoSitio: Site) {
     return this.http.put<Site>(`${this.domain}/v1/site`, nuevoSitio)
-    .pipe(map(res => res))
+    .pipe(map(res => res));
   }
 }

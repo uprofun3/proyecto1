@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Calification")
 public class Calification implements Serializable{
-
+	//comentario
 	//Columna id que se autogenera 
 	@Id
 	@GeneratedValue
