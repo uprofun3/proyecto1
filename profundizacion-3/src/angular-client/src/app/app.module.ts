@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MaterialModule} from './material-config';//importacion modulos angular material
+
 import { RegisterService } from './services/register.service'
 
 import { AppComponent } from './app.component';
@@ -32,7 +35,9 @@ import { RegisterComponent } from './components/register/register.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [RegisterService],
   bootstrap: [AppComponent]
