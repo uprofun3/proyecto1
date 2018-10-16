@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 //Esta tabla guardara todos los comentarios que haya hecho un usuario a un sitio
@@ -13,20 +14,22 @@ import javax.persistence.Table;
 @Table(name="Comment")
 public class Comment implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	//Autogenerado, guarda el id del comentario 
 	@Id
 	@GeneratedValue
 	@Column(name="id", unique=true)
 	private long id;
 	
-	//Columna donde se almacena el id del usuario que hizo el comentario 
-	@Column(name="userId", nullable=false)
-	private long userId;
+	@ManyToOne
+	private User user;
 	
-	//Columna donde se almacena el id del sitio al cual se hizo el comentario
-	@Column(name="site", nullable=false)
-	private long site;
-	
+	@ManyToOne
+	private Site site;
 	
 	//Columna donde se almacena el contenido del comentario
 	@Column(name="content", nullable=false)
@@ -56,19 +59,20 @@ public class Comment implements Serializable{
 		this.id = id;
 	}
 
-	public long getUserId() {
-		return userId;
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setUser(long userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public long getSite() {
+	public Site getSite() {
 		return site;
 	}
 
-	public void setSite(long site) {
+	public void setSite(Site site) {
 		this.site = site;
 	}
 

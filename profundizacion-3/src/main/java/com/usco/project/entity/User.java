@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 //Tabla que guardara la informacion de los usuarios
@@ -13,10 +14,15 @@ import javax.persistence.Table;
 @Table(name="Users")
 public class User implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	//id del usuario, autogenerado
 	@Id
 	@GeneratedValue
-	@Column(name="id", unique=true)
+	@Column(name="user_id", unique=true)
 	private long id;
 	
 	//nombre de usuario, no se puede repetir
@@ -28,20 +34,11 @@ public class User implements Serializable{
 	private String password;
 	
 	//correo del usuario
-	@Column(name="email", unique=true, nullable=false)
-	private String email;
+	@Column(name="state", nullable=false)
+	private String state;
 	
-	//tipo de usaurio, (normal, administrador, dueño de un sitio)
-	@Column(name="type", nullable=false)
-	private String type;
-	
-	//nombre del usuario
-	@Column(name="name", length=20, nullable=false)
-	private String name;
-	
-	//apellido del usuario
-	@Column(name="lastName", length=30)
-	private String lastName;
+	@OneToOne
+	private Person person;
 	
 	public User() {
 		
@@ -72,36 +69,20 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getState() {
+		return state;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setState(String state) {
+		this.state = state;
 	}
 
-	public String getType() {
-		return type;
+	public Person getPerson() {
+		return person;
 	}
 
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 	
 	

@@ -13,6 +13,11 @@ import javax.persistence.Table;
 @Table(name="Category")
 public class Category implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	//Almacena el id de la categoria, este campo sera autogenerado
 	@Id
 	@GeneratedValue
@@ -31,6 +36,9 @@ public class Category implements Serializable{
 	//Se almacena la url de la imagen del icono de la categoria
 	@Column(name="icon")
 	private String icon;
+	
+	@Column(name="state")
+	private String state;
 	
 	public Category () {
 		
@@ -66,6 +74,14 @@ public class Category implements Serializable{
 
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 	

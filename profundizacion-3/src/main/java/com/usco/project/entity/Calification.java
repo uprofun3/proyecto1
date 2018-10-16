@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 //Se crea una entidad la cual creara una tabla llamada Calificacion en la base de datos
@@ -13,6 +14,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Calification")
 public class Calification implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	//comentario
 	//Columna id que se autogenera 
 	@Id
@@ -20,13 +26,11 @@ public class Calification implements Serializable{
 	@Column(name="id", unique=true)
 	private long id;
 	
-	//Columna site que almacenara el id del sitio que se califico, sera de tipo not null
-	@Column(name="site", nullable=false)
-	private long site;
+	@ManyToOne
+	private Site site;
 	
-	//Columna userId que almacenara el id del usuario que califico, sera de tipo not null
-	@Column(name="userId", nullable=false)
-	private long userId;
+	@ManyToOne
+	private User user;
 	
 	//Columna calificacion que guardara la calificacion hecha por er usuario
 	@Column(name="calification", nullable=false)
@@ -47,21 +51,26 @@ public class Calification implements Serializable{
 		this.id = id;
 	}
 
-	public long getSite() {
+
+	public Site getSite() {
 		return site;
 	}
 
-	public void setSite(long site) {
+
+	public void setSite(Site site) {
 		this.site = site;
 	}
 
-	public long getUserId() {
-		return userId;
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setUser(long userId) {
-		this.userId = userId;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
+
 
 	public float getCalification() {
 		return calification;

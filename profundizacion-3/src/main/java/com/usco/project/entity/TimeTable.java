@@ -13,6 +13,11 @@ import javax.persistence.Table;
 @Table(name="TimeTable")
 public class TimeTable implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	//id del horario
 	@Id
 	@GeneratedValue

@@ -9,35 +9,34 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//Tabla que almacena los sitios favoritos de los usuarios
 @Entity
-@Table(name="FavoriteSite")
-public class FavoriteSite implements Serializable{
+@Table(name="Person_Rol")
+public class PersonRol implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	//id del sitio favorito, autogenerado
 	@Id
 	@GeneratedValue
-	@Column(name="Favorite_Site_id", unique=true)
+	@Column(name="person_rol_id", unique=true)
 	private long id;
 	
 	@ManyToOne
-	private Site site;
+	private Rol rol;
 	
 	@ManyToOne
-	private User user;
-	
-	
-	
-	public FavoriteSite() {
-		
-	}
+	private Person person;
 
-	//Metodos getters y setters 
+	public PersonRol(long id) {
+		this.id = id;
+	}
+	
+	public PersonRol() {
+		
+	}	
+
 	public long getId() {
 		return id;
 	}
@@ -46,22 +45,21 @@ public class FavoriteSite implements Serializable{
 		this.id = id;
 	}
 
-	public Site getSite() {
-		return site;
+	public Rol getRol() {
+		return rol;
 	}
 
-	public void setSite(Site site) {
-		this.site = site;
+	public void setRol(Rol rol) {
+		this.rol = rol;
 	}
 
-	public User getUser() {
-		return user;
+	public Person getPerson() {
+		return person;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setPerson(Person person) {
+		this.person = person;
 	}
-
 	
 	
 	

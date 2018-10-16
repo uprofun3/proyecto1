@@ -13,10 +13,15 @@ import javax.persistence.Table;
 @Table(name="Site")
 public class Site implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	//Id del sitio, Autogenerado
 	@Id
 	@GeneratedValue
-	@Column(name="id", unique=true)
+	@Column(name="site_id", unique=true)
 	private long id;
 	
 	//nombre del sitio
@@ -52,14 +57,12 @@ public class Site implements Serializable{
 	private String information;
 	
 	
-	//Categoria del Sitio
-	@Column(name="category", nullable=false)
-	private int category;
-	
-	
 	//Calificacion del sitio
 	@Column(name="calification")
 	private float calification;
+	
+	@Column(name="clicks")
+	private long clicks;
 	
 	public Site() {
 		
@@ -138,13 +141,6 @@ public class Site implements Serializable{
 		this.information = information;
 	}
 
-	public int getCategory() {
-		return category;
-	}
-
-	public void setCategory(int category) {
-		this.category = category;
-	}
 
 	public float getCalification() {
 		return calification;
@@ -152,6 +148,14 @@ public class Site implements Serializable{
 
 	public void setCalification(float calification) {
 		this.calification = calification;
+	}
+
+	public long getClicks() {
+		return clicks;
+	}
+
+	public void setClicks(long clicks) {
+		this.clicks = clicks;
 	}
 	
 	

@@ -9,38 +9,40 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//Tabla que guarda la informacion de una imagen
 @Entity
-@Table(name="Image")
-public class Image implements Serializable{
+@Table(name="Services_Site")
+public class ServicesSite implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	//id del imagen
 	@Id
 	@GeneratedValue
-	@Column(name="id", unique=true)
+	@Column(name="service_site_id", unique=true)
 	private long id;
 	
 	@ManyToOne
-	@Column(name="owner")
 	private Site site;
 	
-	//guarda la url donde se encuentra almacenada la imagen
-	@Column(name="url", nullable=false)
-	private String url;
+	@ManyToOne
+	private Service service;
+
+	public ServicesSite(long id) {
+		this.id = id;
+	}
 	
-	public Image() {
+	
+	public ServicesSite() {
 		
 	}
 
-	//getters setters
+
 	public long getId() {
 		return id;
 	}
+
 
 	public void setId(long id) {
 		this.id = id;
@@ -51,17 +53,21 @@ public class Image implements Serializable{
 		return site;
 	}
 
+
 	public void setSite(Site site) {
 		this.site = site;
 	}
 
-	public String getUrl() {
-		return url;
+
+	public Service getService() {
+		return service;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+
+	public void setService(Service service) {
+		this.service = service;
 	}
+	
 	
 	
 }
